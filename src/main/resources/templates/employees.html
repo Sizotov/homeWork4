@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<h1>Employees</h1>
+<h2>All employees</h2>
+
+<table>
+    <tr>
+        <th>Employee secondName:</th>
+        <th>Employee age:</th>
+        <th>Employee position:</th>
+    </tr>
+    <tr th:each="employee: ${employees}">
+        <td th:text="${employee.secondName}"></td>
+        <td th:text="${employee.age}"></td>
+        <td th:text="${employee.position}"></td>
+    </tr>
+</table>
+<h2>Add employees</h2>
+<form action="/employees" method="post">
+    <div>
+        SecondName:<br><input type="text" name="secondName"><br />
+    </div>
+    <div>
+        Age:<br><input type="number" step="any" name="age"><br />
+    </div>
+    <div>
+        Position:<br><input type="text" step="any" name="position"><br />
+    </div>
+    <button type="submit">Add employee</button>
+</form>
+</body>
+</html>
